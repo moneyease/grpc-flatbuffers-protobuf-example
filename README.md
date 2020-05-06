@@ -1,43 +1,27 @@
 
 # gRPC Flatbuffers Example
 
-A simple bookmarking service defined in the FlatBuffers IDL, and creation of gRPC server interfaces and client stubs. (`fileupload.fbs`)
+A simple bookmarking service defined in the FlatBuffers and Protocol Buffers IDL, and creation of gRPC server interfaces and client stubs. (`fileupload.fbs` `fileupload.proto`)
 
-A Protocol Buffers IDL has also been provided for comparison. (`fileupload.proto`)
+## Instructions
 
-### Instructions
-
-#### Compile the FlatBuffers IDL file
+### Compile 
 ```
-flatc --go --grpc fileupload.fbs
-```
-
-### Compile the Go Server & Client
-```
-make compile
+make all
 ```
 
 #### Start Server
+Server is listening on 2 ports one each for Flatbuffers and Protocol Buffers handles
 ```
-./server
-```
-
-#### Send commands via Client
-```
-./client <filename> 
+./fileserver
 ```
 
-Run `./server`
-
-Run `./client`
-
-### FlatBuffers Compiler Setup
-
-Setup `flatc`:
-* Download flatbuffers src via [Github Releases](https://github.com/google/flatbuffers/releases)
-* Compile `flatc`. e.g. `cmake -G"Unix Makefiles"` then run `make`
-
-### gRPC Setup
+#### Client uploading files
 ```
-go get google.golang.org/grpc
+./client -f <filename> -m proto|flat -c <num iteration>
 ```
+
+## Resources
+
+https://google.github.io/flatbuffers/flatbuffers_guide_use_go.html
+https://developers.google.com/protocol-buffers/docs/gotutorial
