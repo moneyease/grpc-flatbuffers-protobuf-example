@@ -16,6 +16,7 @@ import (
 	"net/http"
 	"net/http/pprof"
 	_ "os"
+	"strings"
 	"sync"
 	"time"
 )
@@ -93,7 +94,10 @@ func (s *pbServer) Upload(context context.Context, in *pb.UploadRequest) (*pb.Up
 }
 
 func main() {
+	log.Printf("Listening on %s,%s...", strings.Split(fbAddr, ":")[1], strings.Split(pbAddr, ":")[1])
 	done := make(chan bool, 1)
+	port := ":9090"
+	log.Printf("Listening on %s for pprof..", strings.Split(port, ":")[1])
 	go func() {
 		r := http.NewServeMux()
 		// Register pprof handlers
@@ -102,7 +106,7 @@ func main() {
 		r.HandleFunc("/debug/pprof/profile", pprof.Profile)
 		r.HandleFunc("/debug/pprof/symbol", pprof.Symbol)
 		r.HandleFunc("/debug/pprof/trace", pprof.Trace)
-		http.ListenAndServe(":9090", r)
+		http.ListenAndServe(port, r)
 	}()
 
 	func() {
