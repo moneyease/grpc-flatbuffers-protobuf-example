@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package service;
+
+service FileUpload {
+    rpc Upload(UploadRequest) returns (UploadResponse) {}
+}
+
+message UploadRequest {
+	bytes file = 1;
+	string filename = 2;
+	enum Flag {
+		None = 0;
+		First = 1;
+		Last = 2;
+	}
+	Flag flag = 3;
+	uint32 size = 4;
+}
+
+message UploadResponse {}

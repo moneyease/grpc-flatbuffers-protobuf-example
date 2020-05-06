@@ -1,0 +1,16 @@
+namespace fileupload;
+
+enum Flag : byte { None = 0, First = 1, Last }
+
+rpc_service FileUpload {
+  Upload(UploadRequest):UploadResponse(streaming: "none");
+}
+
+table UploadRequest {
+  file:string;
+  filename:string;
+  flag:Flag;
+  size:long;
+}
+
+table UploadResponse {}
