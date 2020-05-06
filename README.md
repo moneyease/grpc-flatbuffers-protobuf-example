@@ -23,5 +23,5 @@ Server is listening on 2 ports one each for Flatbuffers and Protocol Buffers han
 
 ## Resources
 
-https://google.github.io/flatbuffers/flatbuffers_guide_use_go.html
-https://developers.google.com/protocol-buffers/docs/gotutorial
+### https://google.github.io/flatbuffers/flatbuffers_guide_use_go.html
+### https://developers.google.com/protocol-buffers/docs/gotutorial
