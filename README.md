@@ -1,5 +1,5 @@
 
-# gRPC Flatbuffers Example
+# gRPC Flatbuffers and Protocol Buffers Example
 
 A simple bookmarking service defined in the FlatBuffers and Protocol Buffers IDL, and creation of gRPC server interfaces and client stubs. (`fileupload.fbs` `fileupload.proto`)
 
