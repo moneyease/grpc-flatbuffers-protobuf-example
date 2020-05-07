@@ -15,10 +15,14 @@ Server is listening on 2 ports one each for Flatbuffers and Protocol Buffers han
 ```
 ./fileserver
 ```
+or just do to run as docker image
+```
+make deploy
+```
 
 #### Client uploading files
 ```
-./client -f <filename> -m proto|flat -c <num iteration>
+./fileclient -f <filename> -m proto|flat -c <num iteration>
 ```
 
 ## Resources
