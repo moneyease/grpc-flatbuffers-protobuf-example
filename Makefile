@@ -18,7 +18,7 @@ deploy : compile_fileupload_server
 	@echo "Docker building image.."
 	@docker build --force-rm=true -t docker.fileserver . -f Dockerfile
 	@echo "Docker image is running.."
-	@docker run -it -p 50051:50051 -p 50052:50052 -p 9090:9090 --name=fileserver  docker.fileserver:latest
+	@docker run -dit -p 50051:50051 -p 50052:50052 -p 9090:9090 --name=fileserver  docker.fileserver:latest
 
 compile_fileupload_client:
 	cd fileupload-client && go build -o ../fileclient  && cd ..
